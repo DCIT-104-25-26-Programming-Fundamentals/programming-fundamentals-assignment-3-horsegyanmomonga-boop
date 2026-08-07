@@ -59,4 +59,47 @@
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
 // =============================================================================
 
+const readline = require('readline-sync');
+
+function printSingleTable() {
+  const input = readline.question('Enter a number: ');
+  const num = Number(input);
+
+  if (!Number.isInteger(num) || num <= 0) {
+    console.log('Error: Invalid input. Please enter a positive integer.');
+    return;
+  }
+
+  console.log(`\nMultiplication Table for ${num}:`);
+  for (let i = 1; i <= 12; i++) {
+    console.log(`${num}  x  ${i}  =  ${num * i}`);
+  }
+}
+
+function printTablesUpToN() {
+  const input = readline.question('\nEnter a number N: ');
+  const n = Number(input);
+
+  if (!Number.isInteger(n) || n <= 0) {
+    console.log('Error: Invalid input. Please enter a positive integer.');
+    return;
+  }
+
+  for (let tableNum = 1; tableNum <= n; tableNum++) {
+    console.log(`\nMultiplication Table for ${tableNum}:`);
+    for (let i = 1; i <= 12; i++) {
+      console.log(`${tableNum}  x  ${i}  =  ${tableNum * i}`);
+    }
+    if (tableNum < n) {
+      console.log('---------------------------');
+    }
+  }
+}
+
+function main() {
+  printSingleTable();
+  printTablesUpToN();
+}
+
+main();
 
