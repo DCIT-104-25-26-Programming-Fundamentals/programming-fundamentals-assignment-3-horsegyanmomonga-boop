@@ -71,12 +71,6 @@
 
 const readlineSync = require('readline-sync');
 
-/**
- * Reads a matrix of given dimensions from user input line by line.
- * @param {number} rows - Number of rows.
- * @param {number} cols - Number of columns.
- * @returns {number[][]} - The constructed matrix.
- */
 function readMatrix(rows, cols) {
     const matrix = [];
     for (let i = 0; i < rows; i++) {
@@ -90,10 +84,6 @@ function readMatrix(rows, cols) {
     return matrix;
 }
 
-/**
- * Displays a matrix in a neatly formatted, aligned grid.
- * @param {number[][]} matrix - Matrix to display.
- */
 function printMatrix(matrix) {
     for (let i = 0; i < matrix.length; i++) {
         const rowString = matrix[i].map(val => String(val).padStart(5)).join(' ');
@@ -101,11 +91,6 @@ function printMatrix(matrix) {
     }
 }
 
-/**
- * Part A: Transposes an M x N matrix into an N x M matrix.
- * @param {number[][]} matrix - Input matrix.
- * @returns {number[][]} - Transposed matrix.
- */
 function transposeMatrix(matrix) {
     const rows = matrix.length;
     const cols = matrix[0].length;
@@ -122,12 +107,6 @@ function transposeMatrix(matrix) {
     return transposed;
 }
 
-/**
- * Part B: Adds two M x N matrices element-wise.
- * @param {number[][]} matrixA - First matrix.
- * @param {number[][]} matrixB - Second matrix.
- * @returns {number[][]} - Sum matrix.
- */
 function addMatrices(matrixA, matrixB) {
     const rows = matrixA.length;
     const cols = matrixA[0].length;
@@ -144,12 +123,6 @@ function addMatrices(matrixA, matrixB) {
     return sum;
 }
 
-/**
- * Part C: Multiplies an M x N matrix by an N x P matrix.
- * @param {number[][]} matrixA - Matrix A (M x N).
- * @param {number[][]} matrixB - Matrix B (N x P).
- * @returns {number[][]} - Product matrix A x B (M x P).
- */
 function multiplyMatrices(matrixA, matrixB) {
     const rowsA = matrixA.length;
     const colsA = matrixA[0].length;
@@ -171,9 +144,6 @@ function multiplyMatrices(matrixA, matrixB) {
     return product;
 }
 
-/**
- * Main execution function demonstrating Parts A, B, and C.
- */
 function main() {
     console.log('=== PART A: Transpose a Matrix ===');
     const rowsA = readlineSync.questionInt('Enter number of rows: ');
@@ -206,4 +176,3 @@ function main() {
 }
 
 main();
-
