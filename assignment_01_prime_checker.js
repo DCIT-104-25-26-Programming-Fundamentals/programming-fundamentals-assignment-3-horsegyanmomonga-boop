@@ -45,17 +45,11 @@
 
 const readlineSync = require('readline-sync');
 
-/**
- * Checks if a given integer is a prime number.
- * @param {number} num - The number to check.
- * @returns {boolean} - Returns true if the number is prime, otherwise false.
- */
 function isPrime(num) {
     if (num < 2) {
         return false;
     }
 
-    // Check divisors from 2 up to the square root of num
     for (let i = 2; i <= Math.sqrt(num); i++) {
         if (num % i === 0) {
             return false;
@@ -65,9 +59,6 @@ function isPrime(num) {
     return true;
 }
 
-/**
- * Main execution function to handle user input and output.
- */
 function main() {
     const number = readlineSync.questionInt('Enter a number: ');
 
