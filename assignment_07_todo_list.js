@@ -82,3 +82,85 @@
 // =============================================================================
 
 
+const readline = require('readline-sync');
+
+let tasks = [];
+
+function addTask() {
+  const task = readline.question('Enter task: ');
+  if (task.trim() === '') {
+    console.log('Task description cannot be empty.');
+    return;
+  }
+  tasks.push(task);
+  console.log(`Task added: "${task}"`);
+}
+
+function viewTasks() {
+  if (tasks.length === 0) {
+    console.log('Your to-do list is empty.');
+    return;
+  }
+  console.log('\nYour Tasks:');
+  tasks.forEach((task, index) => {
+    console.log(`${index + 1}. ${task}`);
+  });
+}
+
+function deleteTask() {
+  if (tasks.length === 0) {
+    console.log('No tasks available to delete.');
+    return;
+  }
+
+  viewTasks();
+  const input = readline.question('Enter task number to delete: ');
+  const taskNum = Number(input);
+
+  if (!Number.isInteger(taskNum) || taskNum < 1 || taskNum > tasks.length) {
+    console.log('Invalid task number.');
+    return;
+  }
+
+  const removed = tasks.splice(taskNum - 1, 1);
+  console.log(`Task "${removed[0]}" has been removed.`);
+}
+
+function displayMenu() {
+  console.log('\n============================');
+  console.log('     TO-DO LIST MENU');
+  console.log('============================');
+  console.log('1. Add task');
+  console.log('2. View tasks');
+  console.log('3. Delete task');
+  console.log('4. Quit');
+}
+
+function main() {
+  let running = true;
+
+  while (running) {
+    displayMenu();
+    const choice = readline.question('Enter your choice (1-4): ');
+
+    switch (choice.trim()) {
+      case '1':
+        addTask();
+        break;
+      case '2':
+        viewTasks();
+        break;
+      case '3':
+        deleteTask();
+        break;
+      case '4':
+        console.log('Goodbye!');
+        running = false;
+        break;
+      default:
+        console.log('Invalid choice. Please enter a number between 1 and 4.');
+    }
+  }
+}
+
+main();
