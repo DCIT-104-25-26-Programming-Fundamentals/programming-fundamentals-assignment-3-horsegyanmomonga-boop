@@ -43,13 +43,9 @@
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
 // =============================================================================
 
+
 const readlineSync = require('readline-sync');
 
-/**
- * Calculates the sum of all elements in an array.
- * @param {number[]} numbers - Array of numbers.
- * @returns {number} - The total sum.
- */
 function calculateSum(numbers) {
     let sum = 0;
     for (let i = 0; i < numbers.length; i++) {
@@ -58,20 +54,10 @@ function calculateSum(numbers) {
     return sum;
 }
 
-/**
- * Calculates the average of elements in an array.
- * @param {number[]} numbers - Array of numbers.
- * @returns {number} - The average value.
- */
 function calculateAverage(numbers) {
     return calculateSum(numbers) / numbers.length;
 }
 
-/**
- * Finds the maximum value in an array.
- * @param {number[]} numbers - Array of numbers.
- * @returns {number} - The largest number.
- */
 function calculateMax(numbers) {
     let max = numbers[0];
     for (let i = 1; i < numbers.length; i++) {
@@ -82,11 +68,6 @@ function calculateMax(numbers) {
     return max;
 }
 
-/**
- * Finds the minimum value in an array.
- * @param {number[]} numbers - Array of numbers.
- * @returns {number} - The smallest number.
- */
 function calculateMin(numbers) {
     let min = numbers[0];
     for (let i = 1; i < numbers.length; i++) {
@@ -97,9 +78,6 @@ function calculateMin(numbers) {
     return min;
 }
 
-/**
- * Main execution function to gather input and display statistical results.
- */
 function main() {
     const count = readlineSync.questionInt('How many numbers? ');
 
@@ -122,4 +100,5 @@ function main() {
 }
 
 main();
+
 
