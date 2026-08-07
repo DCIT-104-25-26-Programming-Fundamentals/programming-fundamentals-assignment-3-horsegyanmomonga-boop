@@ -51,11 +51,6 @@
 
 const readlineSync = require('readline-sync');
 
-/**
- * Determines the letter grade based on a numeric score.
- * @param {number} score - The student's score.
- * @returns {string|null} - Returns the letter grade (A, B, C, D, F) or null if out of range.
- */
 function getGrade(score) {
     if (score < 0 || score > 100) {
         return null;
@@ -74,9 +69,6 @@ function getGrade(score) {
     }
 }
 
-/**
- * Main execution function to prompt user and display the result.
- */
 function main() {
     const score = readlineSync.questionInt('Enter student score (0-100): ');
     const grade = getGrade(score);
@@ -89,4 +81,3 @@ function main() {
 }
 
 main();
-
