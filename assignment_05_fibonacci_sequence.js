@@ -79,14 +79,10 @@ function printFibonacciTerms() {
   console.log(`Fibonacci sequence: ${terms.join(' ')}`);
 }
 
-// =============================================================================
-// PART B — Check if a Number Belongs to the Sequence
-// =============================================================================
 function checkFibonacciNumber() {
   const input = readline.question('Enter a number to check: ');
   const target = Number(input);
 
-  // Validate input is a non-negative integer
   if (!Number.isInteger(target) || target < 0) {
     console.log('Error: Please enter a valid non-negative integer.');
     return;
@@ -115,9 +111,8 @@ function checkFibonacciNumber() {
 
 function main() {
   printFibonacciTerms();
-  console.log(); // Blank line separator
+  console.log();
   checkFibonacciNumber();
 }
 
 main();
-
